@@ -14,7 +14,7 @@ function psh(){
 		git add .
 		git commit -m"${mssg} | $dt "
 		git push
-		echo "Pushed to DesignPatterns Repository :)" 
+		echo "Pushed to DesignPatterns Repository 😊" 
 	fi 
 }
 
