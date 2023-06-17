@@ -3,6 +3,7 @@ function psh(){
 
 
 	# Process for Github - push
+	bash deleteclass.sh
 	echo "Enter Message :"
 	read mssg
 	dt=$(date)
