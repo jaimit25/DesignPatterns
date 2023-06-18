@@ -3,3 +3,14 @@ deleteclass.sh : Delete every class file (Dangerous)
 h_gen.sh : Create a Package level hierarchy for the folder ($This shell script ask for project name , prompt)
 psh.sh : Use to push file to repo (takes a message from prompt)
 details.sh : information on the content of This whole Project
+
+
+|- root folder
+	| - Project1
+		| - Project1_MainFile.java 
+	...other files and folders...
+	| - Project2
+		| - Project2_Main.java
+	...other files and folders...
+	
+	
