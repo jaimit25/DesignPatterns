@@ -1,0 +1,5 @@
+compile.sh : file will compile all the files in the java Project
+deleteclass.sh : Delete every class file (Dangerous)
+h_gen.sh : Create a Package level hierarchy for the folder
+psh.sh : use to push file to repo
+details.sh : information on the content of This whole Project

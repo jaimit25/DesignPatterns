@@ -1,7 +1,7 @@
-
 #!/bin/bash
 
 bash deleteclass.sh
+
 # Function to compile Java files recursively
 function compile_files() {
   local directory=$1
@@ -15,10 +15,14 @@ function compile_files() {
   done
 }
 
-# Compile Java files
-current_directory=$(pwd)
-compile_files "$current_directory"
+# Prompt the user to select the project or folder to compile
+read -p "Enter the project or folder path to compile: " project_folder
 
+# Navigate to the parent folder of the project
+cd "$(dirname "$project_folder")" || exit
+
+# Compile Java files
+compile_files "$(basename "$project_folder")"
 
 # java ducksimulationapp.DuckSimApp
 
