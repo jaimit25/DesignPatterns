@@ -3,7 +3,11 @@ deleteclass.sh : Delete every class file (Dangerous)
 h_gen.sh : Create a Package level hierarchy for the folder ($This shell script ask for project name , prompt)
 psh.sh : Use to push file to repo (takes a message from prompt)
 details.sh : information on the content of This whole Project
+run.py : run this file For GUI interface
+run.cpp : run this file for cpp Driven menu program
 
+
+Structure of Folder (Compulsorily Follow this to all scripts properly)
 
 |- root folder
 	| - Project1
@@ -12,7 +16,28 @@ details.sh : information on the content of This whole Project
 	| - Project2
 		| - Project2_Main.java
 	...other files and folders...
-	
-	
-run.py : run this file For GUI interface
-run.cpp : run this file for cpp Driven menu program
+
+
+Please ensure that your projects adhere to this structure to properly utilize the provided shell scripts.
+
+## Shell Scripts
+
+The repository includes the following shell scripts:
+
+- `compile.sh`: Compiles all files in a Java project. This script prompts for the project name.
+- `deleteclass.sh`: Deletes all class files in a project. **Caution:** This action is irreversible and should be used with care.
+- `h_gen.sh`: Generates a package-level hierarchy for a given folder. This script prompts for the project name.
+- `psh.sh`: Used to push files to a repository. It prompts for a commit message.
+- `details.sh`: Provides information about the contents of the entire project.
+- `run.py`: Runs a Python file for a GUI interface.
+- `run.cpp`: Runs a C++ file for a menu-driven program.
+
+Feel free to use these scripts to streamline your project management tasks.
+
+## Contributing
+
+Contributions to this repository are welcome! If you have any improvements, bug fixes, or additional scripts related to project management or design patterns, please feel free to submit a pull request. Ensure that your contributions follow the existing code style and provide clear documentation.
+
+---
+
+Thank you for your interest in this repository. We hope you find the provided examples and scripts helpful for your projects.

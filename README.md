@@ -1,25 +1,53 @@
-# Design Patterns Examples
+# Project Structure and Scripts
 
-This repository contains code examples and notes based on the book "Head First Design Patterns" by Eric Freeman, Elisabeth Robson, Bert Bates, and Kathy Sierra. The book provides a comprehensive introduction to design patterns and demonstrates their practical implementation in various programming languages.
+This repository contains examples of design patterns implemented in Java programming language. Additionally, it includes several shell scripts to help with project management and compilation.
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Code Examples](#code-examples)
+1. [Project Structure](#project-structure)
+2. [Shell Scripts](#shell-scripts)
 3. [Contributing](#contributing)
 
-## Introduction
+## Project Structure
 
-The "Head First Design Patterns" book offers a unique and engaging approach to learning design patterns. It covers various design principles, techniques, and patterns that are widely used in software development. This repository serves as a companion to the book, providing code examples and additional notes to enhance your understanding of the concepts.
+The projects in this repository should follow the following structure:
 
-## Code Examples
+<pre>
+<code>
+    |- root folder 
+	| - Project1
+		| - Project1_MainFile.java 
+	...other files and folders...
+	| - Project2
+		| - Project2_Main.java
+	...other files and folders...
+</code>
+</pre>
 
-The code examples in this repository are organized based on the different design patterns covered in the book. You can explore each example individually and see how it can be applied in practice. The examples are available in multiple programming languages, allowing you to choose the one that suits your needs.
+
+
+
+
+Please ensure that your projects adhere to this structure to properly utilize the provided shell scripts.
+
+## Shell Scripts
+
+The repository includes the following shell scripts:
+
+- `compile.sh`: Compiles all files in a Java project. This script prompts for the project name.
+- `deleteclass.sh`: Deletes all class files in a project. **Caution:** This action is irreversible and should be used with care.
+- `h_gen.sh`: Generates a package-level hierarchy for a given folder. This script prompts for the project name.
+- `psh.sh`: Used to push files to a repository. It prompts for a commit message.
+- `details.sh`: Provides information about the contents of the entire project.
+- `run.py`: Runs a Python file for a GUI interface.
+- `run.cpp`: Runs a C++ file for a menu-driven program.
+
+Feel free to use these scripts to streamline your project management tasks.
 
 ## Contributing
 
-Contributions to this repository are welcome! If you have any improvements, bug fixes, or additional examples related to design patterns, please feel free to submit a pull request. Make sure to follow the existing code style and provide clear documentation for any changes.
+Contributions to this repository are welcome! If you have any improvements, bug fixes, or additional scripts related to project management or design patterns, please feel free to submit a pull request. Ensure that your contributions follow the existing code style and provide clear documentation.
 
 ---
 
-Enjoy exploring the code examples and expanding your knowledge of software design principles and best practices!
+Thank you for your interest in this repository. We hope you find the provided examples and scripts helpful for your projects.
