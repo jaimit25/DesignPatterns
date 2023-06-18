@@ -1,79 +1,121 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Folder Details: DesignPatterns</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #000000;
-      color: #e0e0e0;
-      margin: 20px;
-    }
-    .folder {
-      font-weight: bold;
-      margin-top: 10px;
-      padding-left: 10px;
-    }
-    .file {
-      color: #bdbdbd;
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 20px;
-    }
-  </style>
-</head>
-<body>
-<div class="container">
-  <h1>Folder Details: DesignPatterns</h1>
-  <hr>
-  <div class='folder -Users-jaimitpanchal-Desktop-DesignPatterns' style='color: #8ac249;'>📁 DesignPatterns</div>
-  <ul>
-    <li class='file'>details.sh (Bourne-Again)</li>
-    <li class='file'>compile.sh (ASCII)</li>
-    <li class='file'>deleteclass.sh (ASCII)</li>
-    <li class='file'>psh.ps1 (UTF-8)</li>
-    <li class='file'>info.txt (ASCII)</li>
-    <li class='file'>README.md (ASCII)</li>
-    <li class='file'>deleteclass.ps1 (ASCII)</li>
-    <li class='file'>psh.sh (Bourne-Again)</li>
-    <li class='file'>app.py (Python)</li>
-    <li class='file'>compile.ps1 (ASCII)</li>
-    <div class='folder -Users-jaimitpanchal-Desktop-DesignPatterns-ducksimulationapp' style='color: #8ac249;'>📁 ducksimulationapp</div>
-    <ul>
-      <li class='file'>DuckSimApp.java (Perl5)</li>
-      <div class='folder -Users-jaimitpanchal-Desktop-DesignPatterns-ducksimulationapp-duckimplementationclass' style='color: #8ac249;'>📁 duckimplementationclass</div>
-      <ul>
-        <li class='file'>MallardDuck.java (Java)</li>
-        <div class='folder -Users-jaimitpanchal-Desktop-DesignPatterns-ducksimulationapp-duckimplementationclass-behaviours' style='color: #8ac249;'>📁 behaviours</div>
-        <ul>
-          <div class='folder -Users-jaimitpanchal-Desktop-DesignPatterns-ducksimulationapp-duckimplementationclass-behaviours-fly' style='color: #8ac249;'>📁 fly</div>
-          <ul>
-            <li class='file'>FlyNoWay.java (Java)</li>
-            <li class='file'>FlyWithWings.java (Java)</li>
-          </ul>
-          <div class='folder -Users-jaimitpanchal-Desktop-DesignPatterns-ducksimulationapp-duckimplementationclass-behaviours-quack' style='color: #ffce00;'>📁 quack</div>
-          <ul>
-            <li class='file'>Quack.java (Java)</li>
-            <li class='file'>Squeak.java (Java)</li>
-            <li class='file'>MuteQuack.java (Java)</li>
-          </ul>
-        </ul>
-      </ul>
-      <div class='folder -Users-jaimitpanchal-Desktop-DesignPatterns-ducksimulationapp-duckabstractclass' style='color: #ffce00;'>📁 duckabstractclass</div>
-      <ul>
-        <li class='file'>Duck.java (Java)</li>
-        <div class='folder -Users-jaimitpanchal-Desktop-DesignPatterns-ducksimulationapp-duckabstractclass-interfaces' style='color: #8ac249;'>📁 interfaces</div>
-        <ul>
-          <li class='file'>FlyBehaviour.java (ASCII)</li>
-          <li class='file'>QuackBehaviour.java (ASCII)</li>
-        </ul>
-      </ul>
-    </ul>
-  </ul>
-</div>
-</body>
-</html>
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Folder Structure</title>
+        <style>
+            body {
+                background-color: #222;
+                color: #fff;
+                font-size: 16px;
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .navbar {
+                background-color: #333;
+                padding: 10px;
+            }
+            
+            .sidebar-toggle {
+                background-color: transparent;
+                color: #fff;
+                border: none;
+                font-size: 20px;
+                cursor: pointer;
+                margin-right: 10px;
+            }
+            
+            .current-folder {
+                color: #fff;
+            }
+            
+            .sidebar {
+                background-color: #333;
+                color: #fff;
+                width: 250px;
+                position: fixed;
+                top: 0;
+                left: -250px;
+                height: 100%;
+                overflow-y: auto;
+                transition: left 0.3s;
+                padding: 20px;
+            }
+            
+            .main-section {
+                margin-left: 250px;
+                padding: 20px;
+            }
+            
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .folder {
+                color: #fff;
+                cursor: pointer;
+            }
+            
+            .file {
+                color: #fff;
+                cursor: pointer;
+                margin-left: 10px;
+            }
+            
+            .file-content {
+                white-space: pre-wrap;
+            }
+        </style>
+        <script>
+            function toggleSidebar() {
+                var sidebar = document.getElementById('sidebar');
+                var mainSection = document.getElementById('main-section');
+                if (sidebar.style.left === '-250px') {
+                    sidebar.style.left = '0';
+                    mainSection.style.marginLeft = '250px';
+                } else {
+                    sidebar.style.left = '-250px';
+                    mainSection.style.marginLeft = '0';
+                }
+            }
+            
+            function loadFileContent(path) {
+                fetch('/load_file', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        'path': path
+                    })
+                })
+                .then(response => response.text())
+                .then(content => {
+                    var fileContent = document.getElementById('file-content');
+                    fileContent.innerHTML = content;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div class="navbar">
+            <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+            <span class="current-folder">DesignPatterns</span>
+        </div>
+        <div id="sidebar" class="sidebar">
+            <ul><li><span class="folder">ducksimulationapp</span><ul><li><span class="folder">duckimplementationclass</span><ul><li><span class="folder">behaviours</span><ul><li><span class="folder">fly</span><ul><li><span class="file">FlyNoWay.java</span></li><li><span class="file">FlyWithWings.java</span></li></ul></li><li><span class="folder">quack</span><ul><li><span class="file">Quack.java</span></li><li><span class="file">Squeak.java</span></li><li><span class="file">MuteQuack.java</span></li></ul></li></ul></li></ul><ul><li><span class="file">MallardDuck.java</span></li></ul></li><li><span class="folder">duckabstractclass</span><ul><li><span class="folder">interfaces</span><ul><li><span class="file">FlyBehaviour.java</span></li><li><span class="file">QuackBehaviour.java</span></li></ul></li></ul><ul><li><span class="file">Duck.java</span></li></ul></li></ul><ul><li><span class="file">DuckSimApp.java</span></li></ul></li></ul><ul><li><span class="file">info.txt</span></li><li><span class="file">app.py</span></li></ul>
+        </div>
+        <div id="main-section" class="main-section">
+            <div id="file-content"></div>
+        </div>
+    </body>
+    </html>
+    
