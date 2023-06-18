@@ -12,6 +12,7 @@ This repository contains examples of design patterns implemented in Java program
 
 The projects in this repository should follow the following structure:
 
+
 <pre>
 <code>
     |- root folder 
@@ -24,11 +25,16 @@ The projects in this repository should follow the following structure:
 </code>
 </pre>
 
-
-
-
-
 Please ensure that your projects adhere to this structure to properly utilize the provided shell scripts.
+
+
+## Requirements 
+<pre>
+<code>
+	pip3 install tkinter 	
+</code>
+</pre>
+
 
 ## Shell Scripts
 
