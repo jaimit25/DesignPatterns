@@ -84,6 +84,7 @@ echo "</html>" >> "$OUTPUT_FILE"
 
 echo "Package hierarchy generated successfully in $OUTPUT_FILE!"
 
+open -a "Google Chrome" h.html
 
 # | - current folder 
 # 	| - ducksimulationapp 

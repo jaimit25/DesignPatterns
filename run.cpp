@@ -25,7 +25,8 @@ int main() {
         cout << "3. Run h_gen.sh" << endl;
         cout << "4. Run psh.sh" << endl;
         cout << "5. Run details.sh" << endl;
-        cout << "6. Exit" << endl;
+        cout << "6. Open GitHub DesignPatterns Repository" << endl;
+        cout << "7. Exit" << endl;
 
         cout << "Enter your choice: ";
         cin >> choice;
@@ -76,7 +77,13 @@ int main() {
                 }
                 break;
             }
-            case 6:
+            case 6: {
+                const char* url = "https://github.com/jaimit25/DesignPatterns";
+                string command = "open " + string(url);
+                system(command.c_str());
+                break;
+            }
+            case 7:
                 running = false;
                 break;
             default:

@@ -96,3 +96,4 @@ echo "</div>
 </html>" >> index.html
 
 echo "Details saved to index.html"
+open -a "Google Chrome" index.html
