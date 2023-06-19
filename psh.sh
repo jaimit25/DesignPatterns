@@ -3,7 +3,11 @@ function psh(){
 
 
 	# Process for Github - push
+	rm h.html
+	rm index.html
+	rm cutom.css
 	bash deleteclass.sh
+	rm run
 	echo "Enter Message :"
 	read mssg
 	dt=$(date)
