@@ -102,25 +102,25 @@ button_bg = "#bf0f70"
 button_fg = "black"
 
 # Create the menu buttons
-compile_btn = tk.Button(window, text="Run compile.sh", command=run_compile, bg=button_bg, fg=button_fg)
+compile_btn = tk.Button(window, text="Compile Code", command=run_compile, bg=button_bg, fg=button_fg)
 compile_btn.pack(pady=10, padx=20, fill="x")
 
-deleteclass_btn = tk.Button(window, text="Run deleteclass.sh", command=run_deleteclass, bg=button_bg, fg=button_fg)
+deleteclass_btn = tk.Button(window, text="Delete Class Files", command=run_deleteclass, bg=button_bg, fg=button_fg)
 deleteclass_btn.pack(pady=10, padx=20, fill="x")
 
-h_gen_btn = tk.Button(window, text="Run h_gen.sh", command=run_h_gen, bg=button_bg, fg=button_fg)
+h_gen_btn = tk.Button(window, text="Package Contents", command=run_h_gen, bg=button_bg, fg=button_fg)
 h_gen_btn.pack(pady=10, padx=20, fill="x")
 
-psh_btn = tk.Button(window, text="Run psh.sh", command=run_psh, bg=button_bg, fg=button_fg)
+psh_btn = tk.Button(window, text="Git push", command=run_psh, bg=button_bg, fg=button_fg)
 psh_btn.pack(pady=10, padx=20, fill="x")
 
-details_btn = tk.Button(window, text="Run details.sh", command=run_details, bg=button_bg, fg=button_fg)
+details_btn = tk.Button(window, text="Generate Info", command=run_details, bg=button_bg, fg=button_fg)
 details_btn.pack(pady=10, padx=20, fill="x")
 
-github_btn = tk.Button(window, text="Open GitHub DesignPatterns", command=open_github, bg=button_bg, fg=button_fg)
+github_btn = tk.Button(window, text="Open GitHub Repository", command=open_github, bg=button_bg, fg=button_fg)
 github_btn.pack(pady=10, padx=20, fill="x")
 
-main_func_btn = tk.Button(window, text="Find Main Function", command=find_main_function, bg=button_bg, fg=button_fg)
+main_func_btn = tk.Button(window, text="Run Code", command=find_main_function, bg=button_bg, fg=button_fg)
 main_func_btn.pack(pady=10, padx=20, fill="x")
 
 exit_btn = tk.Button(window, text="Exit", command=window.quit, bg="#E53935", fg=button_fg)
