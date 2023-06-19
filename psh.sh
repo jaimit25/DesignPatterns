@@ -5,7 +5,7 @@ function psh(){
 	# Process for Github - push
 	rm h.html
 	rm index.html
-	rm cutom.css
+	rm custom.css
 	bash deleteclass.sh
 	rm run
 	echo "Enter Message :"
