@@ -83,7 +83,7 @@ The Strategy pattern is a behavioral design pattern that enables selecting the b
 
 Example:
 
-![Example Image](assets/strategy.png)
+![Strategy](assets/strategy.png)
 
 ```java
 
@@ -166,7 +166,7 @@ The Observer pattern is a behavioral design pattern that establishes a one-to-ma
 
 Example :
 
-![Example Image](assets/observer.png)
+![Observer](assets/observer.png)
 
 
 ```java
@@ -276,7 +276,7 @@ The Decorator pattern is a structural design pattern that allows adding new func
 
 Example : 
 
-![Example Image](assets/decorator.png)
+![Decorator](assets/decorator.png)
 
 
 ```java 
