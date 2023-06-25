@@ -1,6 +1,7 @@
 # Project Structure and Scripts
 
 This repository contains examples of design patterns implemented in Java programming language. Additionally, it includes several shell scripts to help with project management and compilation.
+(Switch to some other service provider(Except Jio) to load raw Images (for class Diagram), or else follow this step's https://developers.google.com/speed/public-dns/docs/using ).
 
 ## Table of Contents
 
