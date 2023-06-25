@@ -73,6 +73,7 @@ Thank you for your interest in this repository. We hope you find the provided ex
     - [Strategy Pattern](#strategy-pattern)
     - [Observer Pattern](#observer-pattern)
     - [Decorator Pattern](#decorator-pattern)
+    - [Factory Pattern](#factory-pattern)
 
 
 
