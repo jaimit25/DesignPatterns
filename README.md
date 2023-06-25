@@ -345,7 +345,155 @@ Benefits:
 3. Provides a flexible alternative to subclassing for adding functionality.
 
 
+### Factory Pattern
 
+#### Definition:
+
+The Factory Method pattern is a creational design pattern that provides an interface for creating objects but allows subclasses to decide which class to instantiate.
+It promotes loose coupling by allowing the creation of objects to be delegated to subclasses.
+Purpose:
+
+The Factory Method pattern is used when we want to create objects without specifying the exact class of the object that will be created.
+It enables flexibility in object creation and decouples the client code from the concrete implementation of the objects.
+Participants:
+
+- Creator: This is an abstract class or interface that defines the factory method, which is responsible for creating the objects.
+- ConcreteCreator: Subclasses of the Creator implement the factory method to create specific objects.
+- Product: This is an abstract class or interface that defines the interface for the objects created by the factory method.
+- ConcreteProduct: Subclasses of the Product represent the specific objects that are created by the ConcreteCreator.
+
+How it works:
+
+The client code interacts with the Creator through a common interface or abstract class.
+The Creator class provides a factory method [ createPizza( ) ] that the client code can call to create an object. The factory method returns a Product object.
+
+The Creator class is responsible for defining the interface for creating objects, but it delegates the actual creation to its subclasses.
+Each subclass of the Creator overrides the factory method to create a specific type of Product object.
+
+The client code only needs to know about the Creator and the abstract Product class/interface, without being aware of the specific concrete classes.
+
+#### Advantages:
+1. Encourages loose coupling between the client code and the object creation process.
+2. Provides flexibility in object creation by allowing subclasses to determine the concrete class of the objects.
+3. Enables the addition of new product variants or implementations without modifying existing client code.
+4. Supports the "Open-Closed Principle" by allowing the addition of new Creator and ConcreteProduct subclasses without modifying existing code.
+
+Use cases:
+
+When there is a need for a common interface for creating objects, but the concrete classes are determined at runtime.
+When the client code should not be dependent on specific classes and needs to be decoupled from the object creation process.
+When there is a possibility of adding new product variants in the future without modifying the existing client code.
+
+Example (factory Method Pattern) : 
+![Decorator](./images/factoryMethod.jpg)
+
+```java
+
+// INTERFACES and Abstact Classes
+//Product
+public abstract class Pizza {
+	public String name,dough,sauce;
+	public ArrayList<String> toppings = new ArrayList<>();
+
+	void prepare(){
+		System.out.println("Preparing "+name);
+		System.out.println("Dough "+dough);
+		System.out.println("Sauce "+sauce);
+		System.out.println("Toppings");
+
+		for(int i = 0 ; i < toppings.size() ; i++){
+			System.out.println(" " +toppings.get(i));
+		}
+	}
+
+	void bake(){
+		System.out.println("Baking... ");
+	}
+
+	public void cut(){
+		System.out.println("Cutting... ");
+	}
+
+	void box(){
+		System.out.println("Boxing... ");
+	}
+
+	public String getName(){
+		return name;
+	}
+}
+
+// Creator
+public abstract class PizzaStore {
+	
+    public Pizza orderPizza(String type){
+	Pizza pizza = createPizza(type);
+	pizza.prepare();
+	pizza.bake();
+	pizza.cut();
+	pizza.box();
+
+	return pizza;	
+    }
+
+    public abstract Pizza createPizza(String type);
+}
+
+
+// IMPLEMENTATION classes 
+//Concrete Product
+public class IndianCheesePizza extends Pizza {
+	public IndianCheesePizza(){
+		name = "Indian Cheese Pizza";
+		dough = "Regular";
+		sauce = "Tomato";
+		toppings.add("Paneer");		
+	}
+}
+
+public class NyCheesePizza  extends Pizza {
+    
+    public NyCheesePizza(){
+	name = "Ny Cheese Pizza";
+	dough = "Large";
+	sauce = "Tomato & Onion";
+	toppings.add("Extra Cheese");
+    }
+
+    @Override
+    public void cut(){
+	System.out.println("Cutting... Squares");
+    }
+}
+
+//Concrete Creator
+public class MyPizzaStore extends PizzaStore{
+ @Override
+	public  Pizza createPizza(String type){
+		Pizza pizza ;
+		if(type.equals("cheese")){
+			return new IndianCheesePizza();
+		}else 
+		return new IndianCheesePizza();
+	}
+	
+}
+
+///Usage 
+public class PizzaClient{
+		public static void main(String[] args){
+
+			PizzaStore myStore = new MyPizzaStore();
+			PizzaStore nyStore = new NyPizzaStore();
+			Pizza pizza = myStore.orderPizza("cheese");
+			Pizza pizza2 = nyStore.orderPizza("cheese");
+			System.out.println(pizza.getName());
+			System.out.println(pizza2.getName());
+
+	}
+}
+
+```
 
 #### Talk to me about
 
