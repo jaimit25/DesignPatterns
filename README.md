@@ -61,7 +61,7 @@ Contributions to this repository are welcome! If you have any improvements, bug 
 ![1](https://github.com/jaimit25/DesignPatterns/assets/68295105/2b2b14aa-2a9b-4dfc-8668-2bc01bd31aef)
 
 
-Thank you for your interest in this repository. We hope you find the provided examples and scripts helpful for your projects.
+Thank you for your interest in this repository. I hope you find the provided examples and scripts helpful for your projects.
 
 
 
