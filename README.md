@@ -529,6 +529,7 @@ Ensures consistent object creation: The Abstract Factory pattern guarantees that
 Overall, the Abstract Factory pattern provides a way to create families of related objects with a consistent interface, promoting flexibility, extensibility, and maintainability in object-oriented systems.
 
 Example : 
+
 ![Decorator](./images/abstract-factory.png)
 
 ```java
