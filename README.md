@@ -497,6 +497,243 @@ public class PizzaClient{
 
 ```
 
+
+### Abstract Factory Pattern 
+
+
+The Abstract Factory pattern is a creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes. It allows you to encapsulate the process of object creation within a factory object, which is responsible for creating instances of related classes.
+
+#### Theory:
+The Abstract Factory pattern is based on the idea of creating object families or sets of related objects. These objects share a common theme or purpose and are designed to work together. The pattern introduces two main concepts: AbstractFactory and ConcreteFactory.
+
+AbstractFactory: This is an interface or an abstract class that declares a set of creation methods for creating related objects. Each method in the AbstractFactory corresponds to a different type of object that the factory can create.
+
+ConcreteFactory: This is a class that implements the AbstractFactory interface. It provides the actual implementation of the creation methods declared in the AbstractFactory. Each ConcreteFactory is responsible for creating a specific family of objects that are related to each other.
+
+####  Advantages of the Abstract Factory pattern :
+
+- Provides a high level of flexibility: The Abstract Factory pattern allows you to create families of related objects by simply changing the concrete factory implementation. This makes it easy to switch between different families of objects without impacting the client code that uses those objects.
+
+- Encourages adherence to the Open-Closed Principle: The pattern promotes the Open-Closed Principle, which states that classes should be open for extension but closed for modification. By using the Abstract Factory pattern, you can introduce new types of products (objects) by creating new concrete factories, without modifying existing code.
+
+Ensures consistent object creation: The Abstract Factory pattern guarantees that all objects created by a concrete factory are compatible and consistent with each other. This ensures that the resulting objects can work together seamlessly.
+
+####  Usage of the Abstract Factory pattern:
+
+- Creating platform-independent code: The Abstract Factory pattern is often used in frameworks or libraries that need to create objects that are platform-specific. By using an abstract factory, the code can be written in a platform-independent way, and the concrete factory implementation can be chosen at runtime based on the specific platform.
+
+- Supporting multiple themes or styles: If your application needs to support different themes or styles, such as a light theme or a dark theme, you can use the Abstract Factory pattern to create sets of objects that correspond to each theme. This allows you to switch between themes dynamically without modifying the client code.
+
+- Working with dependencies: The Abstract Factory pattern is useful when creating objects that have complex dependencies. Instead of creating these dependencies manually, the abstract factory can handle the creation and configuration of the entire family of objects, ensuring that the dependencies are correctly resolved.
+
+Overall, the Abstract Factory pattern provides a way to create families of related objects with a consistent interface, promoting flexibility, extensibility, and maintainability in object-oriented systems.
+
+Example : 
+![Decorator](./images/abstract-factory.png)
+
+```java
+
+// Product factory Interface and it's implementation
+
+public interface PizzaIngredientFactory {
+    public Dough createDough();
+    public Sauce createSauce();
+    public Cheese createCheese();
+    public ArrayList<Veggies> createVeggies();
+    public Pepproni createPepperoni();
+    public Clams createClams();
+}
+
+// Chicago
+public class ChicagoPizzaIngredientFactory implements PizzaIngredientFactory{
+	
+ @Override
+	public Dough createDough(){
+		return new ThickCrust();
+	}
+ @Override
+	public Sauce createSauce(){
+		return new TomatoSauce();
+	}
+ @Override
+	public Cheese createCheese(){
+		return new GoatCheese();
+	}
+ @Override
+	public ArrayList<Veggies> createVeggies(){
+		ArrayList<Veggies> veggies = new ArrayList<>();
+		veggies.add(new Veggie("Veggies_chicago1"));
+		veggies.add(new Veggie("Veggies_chicago2"));
+		return veggies;
+	}
+ @Override
+	public Pepproni createPepperoni(){
+		return new PorkPepproni();
+	}
+ @Override
+	public Clams createClams(){
+		return new FreshClams();
+	}
+}
+
+//NY
+public class NyPizzaIngredientFactory  implements PizzaIngredientFactory{
+	
+ @Override
+	public Dough createDough(){
+		return new ThinCrust();
+	}
+ @Override
+	public Sauce createSauce(){
+		return new TomatoSauce();
+	}
+ @Override
+	public Cheese createCheese(){
+		return new MozzarellaCheese();
+	}
+ @Override
+	public ArrayList<Veggies> createVeggies(){
+		ArrayList<Veggies> veggies = new ArrayList<>();
+		veggies.add(new Veggie("Veggies1"));
+		veggies.add(new Veggie("Veggies2"));
+		return veggies;
+	}
+ @Override
+	public Pepproni createPepperoni(){
+		return new BeefPepproni();
+	}
+ @Override
+	public Clams createClams(){
+		return new FreshClams();
+	}
+}
+
+// Using factory  Ingredients Product's in PIZZA INTERFACE and IMPLEMENTATIONS
+public abstract class Pizza {
+	
+	public String name;
+	public Dough dough;
+	public Sauce sauce;
+	public ArrayList<Veggies> veggies;
+	public Pepproni pepproni;
+	public Cheese cheese ;
+	public Clams clam ;
+
+	public abstract void prepare();
+
+	public void bake(){
+		System.out.println("Baking... ");
+	}
+
+	public void cut(){
+		System.out.println("Cutting... ");
+	}
+
+	public void box(){
+		System.out.println("Boxing... ");
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public String getName(){
+		return name;
+	}
+
+ 	@Override
+	public String toString(){
+		return name;
+	}
+}
+
+// Implementation of Pizza-Types
+
+//CHEESE
+public class CheesePizza extends Pizza{
+	PizzaIngredientFactory ingredientFactory;
+	
+	public CheesePizza(PizzaIngredientFactory ingredientFactory){
+		this.ingredientFactory = ingredientFactory;
+		setName("Cheese Pizza");
+	}
+
+	
+
+	public void prepare(){
+		System.out.println("Preparing :" + name);
+		dough = ingredientFactory.createDough();
+		sauce = ingredientFactory.createSauce();
+		veggies = ingredientFactory.createVeggies();
+		pepproni = ingredientFactory.createPepperoni();
+		cheese = ingredientFactory.createCheese();
+	}
+}
+
+//CLAM
+public class ClamPizza extends Pizza {
+		PizzaIngredientFactory ingredientFactory;
+		
+		public ClamPizza(PizzaIngredientFactory ingredientFactory){
+			this.ingredientFactory = ingredientFactory;
+			setName("Clam Pizza");
+		}
+	
+		public void prepare(){
+			System.out.println("Preparing : " + name);
+			dough = ingredientFactory.createDough();
+			sauce = ingredientFactory.createSauce();
+			veggies = ingredientFactory.createVeggies();
+			pepproni = ingredientFactory.createPepperoni();
+			cheese = ingredientFactory.createCheese();
+		}
+	}
+
+
+
+// Defining FACTORY PRODUCTS using ITERFACE and IMPLEMENTATION (CORE ABSTRACT FACTORY PATTERN USAGE)
+//check ingredients folder
+
+//CHEESE - Interface
+public abstract class Cheese {
+    String desc = "cheese";
+}
+
+//CHEESE - IMPLEMENTATION
+public class GoatCheese extends Cheese{
+    public GoatCheese(){
+	    System.out.print("GoatCheese");
+    }
+}
+
+public class MozzarellaCheese extends Cheese {
+	public MozzarellaCheese(){
+		System.out.print("MozzarellaCheese");
+	}
+}
+
+// ...Similarly for other Product's (INTERFACE,IMPLEMENTATION'S)...
+
+//USAGE
+System.out.println("PIZZA ABSTRACT FACTORY");
+
+PizzaStore nyStore = new NyPizzaStore();
+PizzaStore chicagoStore = new ChicagoPizzaStore();
+
+System.out.println("*********************NEW YORK PIZZA*********************");
+Pizza pizza_ny = nyStore.orderPizza("cheese");
+System.out.println(pizza_ny.getName());
+
+System.out.println("*********************CHICAGO PIZZA*********************");
+Pizza pizza_c =  chicagoStore.orderPizza("clam");
+System.out.println(pizza_c.getName());
+
+
+```
+
+
+
+
 #### Talk to me about
 
 - Solving Data structure and algorithm questions in **C, C++ and Java**
